@@ -33,3 +33,15 @@ streamlit run dashboard.py    # Step 6 - launch dashboard
 2. Highest overtime: Not calculatable - not in this dataset
 3. Avg staffing by state: AK(6.06) PR(4.58) DC(4.54) lead in ratio
 4. Length of stay: Not available in this dataset
+
+## Glue ETL Jobs (one per table)
+
+| Job | Script | Source Table | Output |
+|---|---|---|---|
+| Job 1 | glue_job_pbj_staffing.py | PBJ master staffing | processed/pbj_staffing/ |
+| Job 2 | glue_job_snf_national.py | SNF national quality | processed/snf_national/ |
+| Job 3 | glue_job_snf_provider.py | SNF provider quality | processed/snf_provider/ |
+| Job 4 | glue_job_swing_bed.py | Swing bed data | processed/swing_bed/ |
+
+Each job runs independently and can be debugged, rerun,
+or monitored separately in AWS Glue and CloudWatch.
